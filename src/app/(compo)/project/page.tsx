@@ -1,7 +1,7 @@
 "use client";
 
 import Navbar from "@/app/components/Navbar";
-import { projects } from "@/app/data/route";
+import { projects } from "@/app/data/projects";
 import Link from "next/link";
 import Image from "next/image";
 import {motion} from "framer-motion"

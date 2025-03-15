@@ -1,19 +1,33 @@
-import { notFound } from "next/navigation";
+"use client"
 
-async function fetchBlog(id: string) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/blog/${id}`, { cache: "no-store" });
+import { notFound } from "next/navigation";
+import { use } from "react";
+
+interface Blog {
+  title: string;
+  content: string;
+  createdAt: string;
+}
+
+async function fetchBlog(id: string): Promise<Blog | null> {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/blog/${id}`, {
+    cache: "no-store",
+  });
 
   if (!res.ok) return null;
   return res.json();
 }
 
-export default async function BlogPage({ params }: { params: { id: string } }) {
-  const { id } = await params
-  const blog = await fetchBlog(id);
 
-  if (!blog) {
-    return notFound();
-  }
+// ✅ Corrected BlogPage Component
+export default async function BlogPage({
+  params
+}: {
+  params: Promise<{ id: string }>
+}) {
+  const {id}=use(params)
+  const blog = await fetchBlog(id);
+  if (!blog) return notFound();
 
   return (
     <div className="max-w-5xl mx-auto p-6">

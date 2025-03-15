@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import dbConnect from "@/app/lib/mongodb";
 import Blog from "@/app/model/blog";
 
-export async function GET(req: Request, { params }: { params: { id: string } }) {
+export async function GET(req: Request, { params }: { params:Promise< { id: string } >}) {
   try {
     await dbConnect();
     const { id } = await params

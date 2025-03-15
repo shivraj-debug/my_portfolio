@@ -2,7 +2,7 @@
 
 import { useParams } from "next/navigation";
 import Image from "next/image";
-import { projects } from "@/app/data/route";
+import {projects}  from "@/app/data/projects";
 import { motion } from "framer-motion";
 
 export default function ProjectDetail() {
