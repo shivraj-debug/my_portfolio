@@ -50,7 +50,7 @@ function page() {
                 on building optimized, secure, and reliable applications
               </p>
               <div className="ml-7 mt-7 ">
-                <div className="w-full grid grid-cols-2 gap-10 md:grid-cols-5 md:gap-4 p-2 ">
+                <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-10 md:grid-cols-5 md:gap-4 p-2 ">
                   <div className=" grid grid-cols-2 p-2 shadow-sm h-20 hover:scale-110  bg-neutral-300  cursor-pointer max-w-52 ">
                     <svg viewBox="0 0 128 128 " className="w-16 h-16 ">
                       <path

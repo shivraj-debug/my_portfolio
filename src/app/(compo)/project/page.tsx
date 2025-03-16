@@ -33,7 +33,7 @@ function page() {
               {projects.map((project) => (
                 < motion.div
                   key={project.id}
-                  className="bg-gray-500 p-6 rounded-3xl shadow-md"
+                  className="bg-gray-500 p-6 rounded-3xl shadow-md text-center "
                   whileHover={{ scale: 1.05 }}
             variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
             transition={{ duration: 0.3 }}
@@ -43,7 +43,7 @@ function page() {
                     alt={project.title}
                     width={450}
                     height={450}
-                    className="rounded-lg mb-4 ml-7  h-60"
+                    className="rounded-lg mb-4  h-30 md:ml-7 sm:-ml-2   sm:h-50 md:h-60"
                   />
                   <h2 className="text-3xl font-semibold">{project.title}</h2>
                   <p className="text-gray-300">{

@@ -12,7 +12,7 @@ export default function Home() {
       <div className={`fixed top-0 left-0 w-full h-20  ${theme=="dark"?"text-white bg-blue-950":"text-black bg-white"}`}>
         <Navbar />
       </div>
-      <div className={`${theme=="dark"?"bg-black ":"bg-gray-200 bg-gradient-to-b from-gray-100 via-gray-200 to-gray-400"} `}>
+      <div className={`${theme=="dark"?"bg-black ":"bg-gray-200 bg-gradient-to-b from-gray-100 via-gray-200 to-gray-400"} w-full  `}>
         
           <Hero />
       

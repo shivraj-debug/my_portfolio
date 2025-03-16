@@ -10,12 +10,12 @@ function Hero() {
   const { theme } = useTheme();
   // const router=useRouter()
   return (
-    <div className="h-auto md:h-screen flex justify-center items-center">
-      <div className=" md:flex justify-center items-center space-x-30">
-        <div className=" md:max-w-1/2 w-full ">
-          <div className=" mt-30 md:mt-20">
+    <div className="h-auto w-full md:h-screen flex justify-center items-center">
+      <div className=" md:flex h-screen w-screen justify-center items-center  md:ml-40 ">
+        <div className="   md:max-w-1/2  -ml-10 sm:w-full ">
+          <div className=" ml-20  sm:ml-0 md:ml-0 mt-30 md:mt-20">
             <div
-              className={`text-6xl font-extrabold text-center md:text-start text-gray-800 p-1 mb-2 ${
+              className={`md:text-6xl font-extrabold text-center md:text-start text-gray-800 p-1 mb-2  sm:text-5xl  text-4xl ${
                 theme == "dark" ? "text-white" : "text-black"
               }`}
             >
@@ -41,7 +41,7 @@ function Hero() {
               </div>
             </div>
             <div className="text-xl ml-2 mb-3 text-cyan-600 text-center md:text-start">
-              i am full stack developer and i am searching for job
+              i am full stack developer, Let's build something amazing together 
             </div>
             <div>{/* for icon of social media */}</div>
             <div className="text-center md:text-start">
@@ -63,13 +63,13 @@ function Hero() {
             </div>
           </div>
         </div>
-        <div className=" md:max-w-1/2 w-full mt-15 justify-center flex ">
+        <div className=" md:max-w-1/2 md:w-full mt-15 justify-center flex ">
           <Image
             src="/profile.jpg"
             width={500}
             height={500}
             alt="Picture of the author"
-            className="rounded-md"
+            className="rounded-md  "
           />
         </div>
       </div>
