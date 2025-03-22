@@ -53,7 +53,7 @@ function Hero() {
 
               <Link
                 href="/resume.pdf"
-                download="resume_march.pdf"
+                download="resume.pdf"
                 className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-600 transition"
               >
                 <button>
