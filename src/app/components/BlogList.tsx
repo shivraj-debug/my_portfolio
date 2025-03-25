@@ -3,6 +3,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import blog from "../model/blog";
 
 interface Blog {
   _id: string;
@@ -21,7 +22,6 @@ export default function Blog() {
       try {
         const res = await fetch("/api/blog", { method: "GET" });
         const data = await res.json();
-        console.log("Fetched Blogs:", data); // Debugging Output
         setBlogs(data);
         setLoading(false);
       } catch (error) {
@@ -39,14 +39,13 @@ export default function Blog() {
   </div>
 
   return (
-    <div>
+    <div className="mt-4 overflow-y-auto h-[550px] ">
       {blogs.length > 0 ? (
         blogs.map((blog,index) => (
           <div  key={blog._id ? blog._id.toString() : `fallback-key-${index}`} className=" px-4  py-2 my-1.5 shadow-sm shadow-gray-500/50 rounded-lg">
-           <Link href={`/blog/${blog._id}`}>
-           
-           <h2 className="text-xl font-bold">{blog.title}</h2>
-           </Link>
+          <Link href={`/blog/${blog._id}`}>
+  <h2 className="text-xl font-bold">{blog.title}</h2>
+</Link>
            <p className="text-sm text-gray-500">
   By {blog.author} on{" "}
   {blog.createdAt ? new Date(blog.createdAt).toLocaleDateString() : "Unknown"}

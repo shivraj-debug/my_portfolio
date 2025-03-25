@@ -61,7 +61,7 @@ function page() {
                 <div className="flex  gap-6 mt-5 ">
                   <div className="hover:scale-125 cursor-pointer">
                     <Link
-                      href="https://www.instagram.com/your-instagram"
+                      href="https://www.instagram.com/shiv105raj/?hl=en"
                       target="_blank"
                     >
                       <svg
@@ -88,7 +88,7 @@ function page() {
                     </Link>
                   </div>
                   <div className="hover:scale-125 cursor-pointer">
-                    <Link href="www.github.com" target="_blank">
+                    <Link href="https://github.com/shivraj-debug" target="_blank">
                       <svg
                         className="w-10 h-10 fill-current "
                         viewBox="0 0 24 24"
@@ -100,7 +100,7 @@ function page() {
                   </div>
                   <div className="hover:scale-125 cursor-pointer">
                     <Link
-                      href="https://twitter.com/your-twitter"
+                      href="https://x.com/ShivRaj27379101"
                       target="_blank"
                     >
                       <svg
@@ -114,7 +114,7 @@ function page() {
                   </div>
                   <div className="hover:scale-125 cursor-pointer ">
                     <Link
-                      href="https://www.facebook.com/your-profile"
+                      href="https://m.facebook.com/shivraj.sudhi/"
                       target="_blank"
                     >
                       <svg

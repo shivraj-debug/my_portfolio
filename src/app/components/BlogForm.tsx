@@ -32,7 +32,7 @@ export default function BlogForm() {
       const data = await res.json();
       // setResponse(data.message);
       // if (res.ok) setFormData({ title: "", content: "", author: "" });
-      if (!res.ok) throw new Error(data.error || "Failed to post blog");
+      if (!data.ok) throw new Error(data.error || "Failed to post blog");
 
     alert("Blog posted successfully!");
     setFormData({ title: "", content: "", author: "" });
