@@ -9,17 +9,22 @@ interface Blog {
   createdAt: string;
 }
 
-export default function BlogPage({ params }: { params?: { id: string } }) {
-  console.log("Params:", params); // Debugging: Check if params is correct
-  if (!params || !params.id) {
-    console.error("Params or slug is undefined");
-    return <p>Invalid route</p>;
-  }
-  const { id } = params;
+interface BlogPageProps {
+  params: Promise<{ id: string }>;
+}
+
+export default function BlogPage({ params }: BlogPageProps) {
+  const [id, setId] = useState<string>("");
   const [blog, setBlog] = useState<Blog | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
-  console.log("Slug:", id); // Debugging: Check if slug is correct
+  useEffect(() => {
+    const fetchId = async () => {
+      const resolvedParams = await params;
+      setId(resolvedParams.id);
+    };
+    fetchId();
+  }, [params]);
 
   useEffect(() => {
     if (!id) return;
@@ -27,7 +32,7 @@ export default function BlogPage({ params }: { params?: { id: string } }) {
     const fetchBlog = async () => {
       setLoading(true);
       try {
-        const res = await fetch(`/api/blog/${id}`, { method: "GET" });
+        const res = await fetch(`/api/blog/${id}`);
         if (!res.ok) throw new Error("Failed to fetch blog");
         const data = await res.json();
         setBlog(data);
@@ -48,7 +53,10 @@ export default function BlogPage({ params }: { params?: { id: string } }) {
   return (
     <div className="max-w-5xl mx-auto p-6">
       <h1 className="text-3xl font-bold">{blog.title}</h1>
-      <span className="mr-2">{blog.author}</span><span className="text-gray-500">{new Date(blog.createdAt).toDateString()}</span>
+      <span className="mr-2">{blog.author}</span>
+      <span className="text-gray-500">
+        {new Date(blog.createdAt).toDateString()}
+      </span>
       <div className="mt-4 text-lg">{blog.content}</div>
     </div>
   );

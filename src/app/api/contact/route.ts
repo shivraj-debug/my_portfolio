@@ -24,7 +24,6 @@ export async function POST(req: NextRequest) {
   try {
     // Parse the request body
     const { name, email, message } = await req.json();
-    console.log("Request Body:", { name, email, message });
 
     // Validate the request body
     if (!name || !email || !message) {
@@ -35,9 +34,7 @@ export async function POST(req: NextRequest) {
     try {
       const newContact = new Contact({ name, email, message });
       await newContact.save();
-      console.log("Contact saved successfully");
     } catch (error) {
-      console.error("Error saving contact:", error);
       return NextResponse.json({ error: "Failed to save contact" }, { status: 500 });
     }
 
@@ -49,15 +46,13 @@ export async function POST(req: NextRequest) {
       html: `<p>Name: ${name}</p><p>Email: ${email}</p><p>Message: ${message}</p>`,
     });
 
-    console.log("Email Response:", emailResponse);
-
     if (emailResponse.error) {
       console.error("Resend Error:", emailResponse.error);
       return NextResponse.json({ error: emailResponse.error.message }, { status: 400 });
     }
 
     return NextResponse.json({ success: true, message: "Message sent successfully!" }, { status: 201 });
-  } catch (error) {
+  } catch (error:any) {
     console.error("Server Error:", error);
     return NextResponse.json({ error: "Server error", details: error.message }, { status: 500 });
   }
